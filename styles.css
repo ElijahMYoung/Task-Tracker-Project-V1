@@ -1,20 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap");
 /* Variables */
 :root {
-  --primary: #eaaa2b;
-  --business: #782ab8;
+  --primary: #f8b42c;
+  --business: #a002ff;
   --personal: var(--primary);
-  --light: #d6d2c4;
-  --grey: rgb(102, 85, 104);
-  --dark: #5d3754;
-  --destroy: #ff5b57;
+  --light: #f7efd6;
+  --grey: #ff512f;
+  --dark: #af4a1b;
+  --destroy: #f13712;
   --pink: #ec4899;
   --purple: #8b5cf6;
 
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-  --business-glow: 0px 0px 4px rgba(211, 58, 238, 0.75);
-  --personal-glow: 0px 0px 4px rgba(234, 186, 64, 0.75);
+  --business-glow: 0px 0px 4px rgba(214, 63, 240, 0.75);
+  --personal-glow: 0px 0px 4px rgba(252, 206, 90, 0.75);
 }
 /* End of Variables */
 
@@ -37,7 +37,7 @@ button {
 /* End of Resets */
 
 body {
-  background: var(--light);
+  background-image: linear-gradient(to right, var(--light), #c7bea4);
   color: var(--dark);
 }
 
@@ -79,14 +79,6 @@ h4 {
   font-weight: 700;
 }
 
-#name {
-  color: var(--pink);
-  background-image: linear-gradient(to right, var(--pink), var(--purple));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .create-task input[type="text"] {
   display: block;
   width: 100%;
@@ -97,6 +89,10 @@ h4 {
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
   margin-bottom: 1.5rem;
+}
+
+#name {
+  color: #f18314;
 }
 
 .create-task .options {
@@ -176,7 +172,7 @@ input:checked ~ .bubble::after {
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: var(--primary);
+  background-image: linear-gradient(to right, #ff9966, #ff5e62);
   box-shadow: var(--personal-glow);
   border-radius: 0.5rem;
   cursor: pointer;

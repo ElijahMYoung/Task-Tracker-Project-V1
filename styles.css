@@ -8,6 +8,8 @@
   --grey: rgb(102, 85, 104);
   --dark: #5d3754;
   --destroy: #ff5b57;
+  --pink: #ec4899;
+  --purple: #8b5cf6;
 
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
@@ -75,6 +77,14 @@ h4 {
   color: var(--dark);
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+#name {
+  color: var(--pink);
+  background-image: linear-gradient(to right, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .create-task input[type="text"] {

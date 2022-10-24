@@ -1,5 +1,6 @@
+// local storage function
 window.addEventListener("load", () => {
-  tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks = JSON.parse(localStorage.getItem("tasks")) || []; //made tasks a global variable so it can be used outside the function
   const nameInput = document.querySelector("#name");
   const newTaskForm = document.querySelector("#new-task-form");
 
@@ -8,6 +9,7 @@ window.addEventListener("load", () => {
   nameInput.value = username;
 
   nameInput.addEventListener("change", (e) => {
+    // (e) is shorthand for event
     localStorage.setItem("username", e.target.value);
   });
 
@@ -22,18 +24,20 @@ window.addEventListener("load", () => {
     };
 
     tasks.push(task);
-
+    // local files can only save primitive data types like string, number, and boolean, so the
+    // json has to be converted to a string so that the local file will be able to use it
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
-    // Reset the form
+    // I have to make it so that the form resets when the task is added (un-ticks radio and clears text)
     e.target.reset();
 
-    DisplayTasks();
+    DisplayTasks(); // any time a change is made DisplayTasks() will be put at the end so that it is updated
   });
 
   DisplayTasks();
 });
 
+// Creating a function to display the information saved in the localdata json
 function DisplayTasks() {
   const taskList = document.querySelector("#task-list");
   taskList.innerHTML = "";
@@ -42,6 +46,7 @@ function DisplayTasks() {
     const taskItem = document.createElement("div");
     taskItem.classList.add("task-item");
 
+    // establishing variables for the elements used
     const label = document.createElement("label");
     const input = document.createElement("input");
     const span = document.createElement("span");
@@ -52,7 +57,7 @@ function DisplayTasks() {
 
     input.type = "checkbox";
     input.checked = task.done;
-    span.classList.add("bubble");
+    span.classList.add("bubble"); //adding bubble class to the input
     if (task.category == "personal") {
       span.classList.add("personal");
     } else {
@@ -93,7 +98,7 @@ function DisplayTasks() {
 
       DisplayTasks();
     });
-
+    //this allows us to take the previously existing task content and toggle the ability to edit it
     edit.addEventListener("click", (e) => {
       const input = content.querySelector("input");
       input.removeAttribute("readonly");
@@ -105,7 +110,7 @@ function DisplayTasks() {
         DisplayTasks();
       });
     });
-
+    // this allows the ability to delete list items
     deleteButton.addEventListener("click", (e) => {
       tasks = tasks.filter((t) => t != task);
       localStorage.setItem("tasks", JSON.stringify(tasks));
